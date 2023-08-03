@@ -1,0 +1,32 @@
+<div class="p-5">
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Dni</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <th scope="row">1</th>
+      <td>{{user.dni}}</td>
+      <td>{{user.code_student}}</td>
+      <td>{{user.names}}</td>
+      <td>{{user.lastname_father}}</td>
+      <td>{{user.email}}</td>
+      <td class="d-flex">
+        <i class="bi bi-trash-fill col-md-6 cursor-pointer" (click)="deleteUser(user)" ></i>
+        <i class="bi bi-pencil-fill col-md-6 cursor-pointer"></i>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>

@@ -1,0 +1,74 @@
+<div class=" w-100 h-100">
+  <div class="row  d-flex align-items-center h-100 px-5 mt-4 ">
+    <div class="col my-4 px-5" >
+      <form class="py-2" [formGroup]="ReniecFormGroup">
+        <div class="d-flex justifyml-4-content-center">
+          <p class="h1">Registrar Usuario</p>
+        </div>
+
+        <div class="container">
+          <div class="row w-100 d-flex">
+            <div class="form-group mt-4 col-md-6">
+              <label for="exampleInputEmail1">Dni</label>
+              <input formControlName="dni" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="" (keydown.Enter)="getReniecByDni()">
+            </div>
+            <div class="form-group mt-4 col-md-6">
+              <label for="exampleInputEmail1">Nombres</label>
+              <input formControlName="names" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+            </div>
+          </div>
+          <div class="row w-100 d-flex">
+            <div class="form-group mt-4 col-md-6">
+              <label for="exampleInputEmail1">Apellido Paterno</label>
+              <input formControlName="lastname_father" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+            </div>
+            <div class="form-group mt-4 col-md-6">
+              <label for="exampleInputEmail1">Apellido Materno</label>
+              <input formControlName="lastname_mother" type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+            </div>
+          </div>
+          <div class="row w-100 d-flex">
+            <div class="form-group mt-4 col-md-6">
+              <label for="exampleInputEmail1">Codigo Estudiante</label>
+              <input formControlName="code_student" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+            </div>
+          </div>
+          <div class="row w-100 d-flex">
+            <div class="form-group mt-4 col-md-6">
+              <label for="exampleInputEmail1">Correo Electronico</label>
+              <input formControlName="email" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+            </div>
+            <div class="form-group mt-4 col-md-6">
+              <label for="exampleInputEmail1">Contraseña</label>
+              <div class="input-group">
+                <input formControlName="password" [type]="passwordFieldType" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                  <i [hidden]="passwordFieldType === 'text'" class="bi bi-eye"></i>
+                  <i [hidden]="passwordFieldType === 'password'" class="bi bi-eye-slash"></i>
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="w-100 mt-4 d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveUser()" >Crear</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div *ngIf="blockPage" class="loader-container">
+    <div class="position-fixed top-0 start-0 bottom-0 end-0 d-flex justify-content-center align-items-center bg-dark" style="opacity: 0.7;">
+      <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isAlert" class="alert alert-primary" role="alert">
+    {{message}}
+  </div>
+</div>
+
