@@ -7,7 +7,6 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'home',
-    canActivate: [AuthenticationGuard],
     loadChildren: () => import('@app/modules/home/home.module').then((m) => m.HomeModule),
   },
 ];

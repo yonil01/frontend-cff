@@ -4,6 +4,7 @@ export interface Module {
   description: string;
   class: string;
   type: number;
+  path: string;
   components: Component[];
   created_at: string;
   updated_at: string;

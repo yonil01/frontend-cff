@@ -23,6 +23,7 @@ export class LoginComponent {
   private subscription: Subscription = new Subscription();
   public formLogin: FormGroup;
   public passwordFieldType: string = 'password';
+  public blockPage: boolean = false;
   constructor(
     private _formBuilder: FormBuilder,
     private _authenticationService: AuthenticationService,
@@ -39,6 +40,7 @@ export class LoginComponent {
   }
 
   public login(): void {
+    this.blockPage = true;
     if (this.formLogin.valid) {
       this.subscription.add(
         this._authenticationService.login(this.formLogin.value).subscribe(
@@ -51,6 +53,7 @@ export class LoginComponent {
               } else {
                 alert('Error logearse');
               }
+              this.blockPage = false;
               this.isLogged();
             }
           },

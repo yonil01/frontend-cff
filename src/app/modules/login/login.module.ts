@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgIf} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { LoginRoutingModule } from './login-routing.module';
@@ -11,6 +11,7 @@ import {Store} from "@ngrx/store";
   imports: [
     LoginRoutingModule,
     ReactiveFormsModule,
+    NgIf,
   ],
   providers: [
   ],
