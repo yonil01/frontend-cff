@@ -53,9 +53,6 @@ export class LocalStoreService {
   }
 
   public getSessionExp(): number {
-    debugger
-    console.log(this.getTokenData())
-    debugger
     if(this.getTokenData()){
       return this.getTokenData().exp;
     }

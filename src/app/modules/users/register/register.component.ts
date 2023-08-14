@@ -36,7 +36,7 @@ export class RegisterComponent {
       dni: this.ReniecFormGroup.get('dni')?.value,
     }
     this._reniecService.getReniecByDni(jsonData).subscribe(async (resp: any) => {
-debugger
+
     if (resp.error) {
       this.isAlert = true;
       this.message = 'Error en el servidor';
