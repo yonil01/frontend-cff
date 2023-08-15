@@ -51,7 +51,7 @@ export class LoginComponent {
                 this._authenticationService.setTokenSessionStorage(resp.data);
                 this.store.dispatch(controlLogin({logged: true}));
               } else {
-                alert('Error logearse');
+                alert('Error logearse!');
               }
               this.blockPage = false;
               this.isLogged();
