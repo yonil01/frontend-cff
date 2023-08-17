@@ -42,7 +42,11 @@ export class LocalStoreService {
   }
 
   public getUserName(): string {
-    return this.getTokenData().user.name + ' ' + this.getTokenData().user.lastname;
+    return this.getTokenData().user.username + ' ' + this.getTokenData().user.lastname_father;
+  }
+
+  public getNames(): string {
+    return this.getTokenData().user.names;
   }
 
   public getUserEmail(): string {

@@ -1,0 +1,115 @@
+body{
+  font-family: 'Rubik', sans-serif;
+}
+
+#contenedor-p{
+  position: relative;
+  padding-left: 85px;
+  padding-right: 70px;
+}
+
+#listar-deudas-txt{
+  font-weight: 400;
+  font-size: 40px;
+}
+
+form{
+  display: block;
+  width: auto;
+}
+
+#fecha, #categoria, #promo{
+  margin: 30px;
+}
+
+label{
+  display: inline-block;
+  width: 160px;
+}
+
+input, select{
+  width: 225px;
+  height: 30px;
+  border: 1px solid #CED4DA;
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+#table-contenedor{
+  display: block;
+  margin: auto;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  overflow: auto;
+}
+
+table thead tr{
+  color: black;
+  text-align: center;
+}
+
+table th, table td{
+  padding: 12px 15px;
+}
+
+table tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+
+table thead tr:first-of-type{
+  border-bottom: 2px solid #dddddd;
+}
+
+table tbody tr:last-of-type{
+  border-bottom: 2px solid #dddddd;
+}
+
+table tbody tr td:first-of-type{
+  text-align: left;
+}
+
+.btns{
+  display: flex;
+  position: relative;
+  float: right;
+  gap: 69px;
+  padding: 0 10px 35px;
+}
+
+button{
+  height: 36px;
+  width: 160px;
+  background-color: #00A3F0;
+  border-radius: 5px;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+.cancelar {
+  position: absolute;
+  width: 160px;
+  height: 36px;
+  border-radius: 10px;
+}
+.registrar {
+  position: absolute;
+  width: 160px;
+  height: 36px;
+  border-radius: 10px;
+  margin-left: 100px;
+}
+.btn button{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

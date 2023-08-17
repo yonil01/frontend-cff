@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ServiceReniecService} from "../services/service-reniec/service-reniec.service";
 import { v4 as uuidv4 } from 'uuid';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent {
   public isAlert: boolean = false;
  public passwordFieldType: string = 'password';
   constructor(private _formBuilder: FormBuilder,
-             private _reniecService: ServiceReniecService,) {
+             private _reniecService: ServiceReniecService,
+              private router: Router) {
 
     this.ReniecFormGroup = this._formBuilder.group({
       dni: [{value: '', disabled: false} ],
@@ -89,6 +91,9 @@ export class RegisterComponent {
 
       this.message = 'El usuario se creo correcto!';
       this.blockPage = false;
+      location.reload();
     })
   }
+
+
 }

@@ -1,12 +1,22 @@
 
 
-<app-home>
-  <div *ngIf="isCreate">
-    <app-register></app-register>
+<app-layout>
+  <div class='container'>
+    <div class='card'>
+      <div class='card-header'>
+        <h1>Lista de alumnos</h1>
+      </div>
+      <div class='card-body'>
+        <div *ngIf="isCreate">
+          <app-register></app-register>
+        </div>
+
+        <div *ngIf="!isCreate">
+          <div class=""><button (click)="isCreate=!isCreate" type="button" class="btn btn-primary">Crear Alumno</button></div>
+          <app-show></app-show>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="!isCreate">
-    <div class=""><button (click)="isCreate=!isCreate" type="button" class="btn btn-primary">Crear Alumno</button></div>
-    <app-show></app-show>
-  </div>
-</app-home>
+</app-layout>

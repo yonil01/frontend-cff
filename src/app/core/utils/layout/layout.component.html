@@ -1,0 +1,60 @@
+<div class='dashboard'>
+  <div class="dashboard-nav">
+    <header><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a><a href="#"
+                                                                               class="brand-logo">
+      <img class="img-logo" src="assets/img/LogoCCFF.jpg"> <span>CFF</span></a></header>
+
+    <nav class="dashboard-nav-list">
+      <ng-container *ngFor="let item of administration; let position = index">
+        <a routerLink="{{item.path}}"  routerLinkActive="active"  class="dashboard-nav-item"><i class="{{item.class}}"></i>
+          {{item.label}} </a>
+      </ng-container>
+
+      <div class="nav-item-divider"></div>
+      <a
+        href="#" class="dashboard-nav-item"><i class="bi bi-box-arrow-left"></i> Logout </a>
+    </nav>
+  </div>
+  <div class='dashboard-app'>
+    <header class='dashboard-toolbar d-flex justify-content-end'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+      <div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+               alt="Generic placeholder image" class="img-fluid rounded-circle border border-dark border-3"
+               style="width: 70px;">
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <div class="profile d-flex flex-row align-items-center mb-2">
+            <p class="mb-0 me-2">@{{userName}}</p>
+            <ul class="mb-0 list-unstyled d-flex flex-row" style="color: #1B7B2C;">
+              <li>
+                <i class="fas fa-star fa-xs"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-xs"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-xs"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-xs"></i>
+              </li>
+              <li>
+                <i class="fas fa-star fa-xs"></i>
+              </li>
+            </ul>
+          </div>
+          <div >
+            <button type="button" class="btn btn-outline-dark btn-rounded btn-sm profile"
+                    data-mdb-ripple-color="dark">Perfil</button>
+
+          </div>
+        </div>
+      </div>
+
+    </header>
+    <div class='dashboard-content'>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

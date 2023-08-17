@@ -1,0 +1,48 @@
+<div class=" w-100 h-100">
+  <div class="row  d-flex align-items-center h-100 px-5 mt-4 ">
+    <div class="col my-4 px-5" >
+      <form class="py-2" [formGroup]="AttendanceFormGroup">
+        <div class="d-flex justifyml-4-content-center">
+          <p class="h1">Registrar Asistencia</p>
+        </div>
+
+        <div class="container">
+          <div class="row w-100 d-flex">
+            <div class="form-group mt-4 col-md-6">
+              <label for="date_attendance">Fecha</label>
+              <input id="date_attendance" formControlName="date_attendance" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+            </div>
+            <div class="form-group mt-4 col-md-6">
+              <label for="category">Categoria</label>
+              <input id="category" formControlName="category" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+            </div>
+          </div>
+          <div class="row w-100 d-flex">
+            <div class="form-group mt-4 col-md-6">
+              <label for="promotion">Promoción</label>
+              <input  id="promotion" formControlName="promotion" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="w-100 mt-4 d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary w-50 mx-auto" >Crear</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div *ngIf="blockPage" class="loader-container">
+    <div class="position-fixed top-0 start-0 bottom-0 end-0 d-flex justify-content-center align-items-center bg-dark" style="opacity: 0.7;">
+      <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isAlert" class="alert alert-primary" role="alert">
+    {{message}}
+  </div>
+</div>
+

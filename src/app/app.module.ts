@@ -10,21 +10,24 @@ import {StoreModule} from "@ngrx/store";
 import {appReducers} from "@app/core/store/app.reducers";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "@env/environment";
-import { HomeComponent } from './modules/home/home.component';
-
+import {UtilsModule} from "@app/core/utils/utils.module";
+import {AttendanceModule} from "@app/modules/attendance/attendance.module";
+import { AdminComponent } from './modules/admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-      HttpClientModule,
-      StoreModule.forRoot(appReducers),
-      StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    UtilsModule,
+    AttendanceModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
