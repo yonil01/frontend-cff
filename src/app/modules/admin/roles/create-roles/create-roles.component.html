@@ -3,7 +3,7 @@
     <div class="col my-4 px-5" >
       <form class="py-2" [formGroup]="AttendanceFormGroup">
         <div class="d-flex justifyml-4-content-center">
-          <p class="h1">Registrar Asistencia</p>
+          <p class="h1">Registrar Roles</p>
         </div>
 
         <div class="container">
@@ -28,7 +28,8 @@
 
         </div>
         <div class="w-100 mt-4 d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary w-50 mx-auto" >Crear</button>
+          <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" (click)="location.reload()">Cancelar</button>
+          <button type="submit" class="btn btn-primary w-50 mx-auto">Crear</button>
         </div>
       </form>
 

@@ -19,4 +19,5 @@ export class CreateAttendanceComponent {
     })
   }
 
+    protected readonly location = location;
 }

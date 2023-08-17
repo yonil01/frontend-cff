@@ -30,6 +30,15 @@ const routes: Routes = [
     path: 'admin/inventory',
     loadChildren: () => import('@app/modules/inventary/inventary.module').then((m) => m.InventaryModule),
   },
+
+  {
+    path: 'admin/roles',
+    loadChildren: () => import('@app/modules/admin/roles/roles.module').then((m) => m.RolesModule),
+  },
+  {
+    path: 'admin/modules',
+    loadChildren: () => import('@app/modules/admin/modules/modules.module').then((m) => m.ModulesModule),
+  },
 ];
 
 @NgModule({

@@ -20,4 +20,5 @@ export class CreateInventaryComponent {
     })
   }
 
+    protected readonly location = location;
 }

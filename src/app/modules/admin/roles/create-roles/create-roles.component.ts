@@ -18,4 +18,6 @@ export class CreateRolesComponent {
       promotion: [{value: '', disabled: false}],
     })
   }
+
+    protected readonly location = location;
 }

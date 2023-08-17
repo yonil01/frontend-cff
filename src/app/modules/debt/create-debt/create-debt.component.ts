@@ -15,8 +15,9 @@ export class CreateDebtComponent {
     this.DebtFormGroup = this._formBuilder.group({
       code_student: [{value: '', disabled: false} ],
       activity: [{value: '', disabled: false} ],
-      mount: [{value: '', disabled: true}],
+      mount: [{value: '', disabled: false}],
     })
   }
 
+    protected readonly location = location;
 }
