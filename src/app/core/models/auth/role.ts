@@ -88,3 +88,9 @@ export interface RolesAttribute {
   value: string;
   attribute: Attribute;
 }
+
+export interface RoleAllowed {
+  id?: string;
+  role_id?: string;
+  role_allow?: Role;
+}

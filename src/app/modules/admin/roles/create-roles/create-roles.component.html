@@ -1,49 +1,121 @@
-<div class=" w-100 h-100">
-  <div class="row  d-flex align-items-center h-100 px-5 mt-4 ">
-    <div class="col my-4 px-5" >
-      <form class="py-2" [formGroup]="AttendanceFormGroup">
-        <div class="d-flex justifyml-4-content-center">
-          <p class="h1">Registrar Roles</p>
-        </div>
 
-        <div class="container">
-          <div class="row w-100 d-flex">
-            <div class="form-group mt-4 col-md-6">
-              <label for="date_attendance">Fecha</label>
-              <input id="date_attendance" formControlName="date_attendance" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
-            </div>
-            <div class="form-group mt-4 col-md-6">
-              <label for="category">Categoria</label>
-              <input id="category" formControlName="category" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
-            </div>
-          </div>
-          <div class="row w-100 d-flex">
-            <div class="form-group mt-4 col-md-6">
-              <label for="promotion">Promoción</label>
-              <input  id="promotion" formControlName="promotion" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
-            </div>
-
-          </div>
-
-
-        </div>
-        <div class="w-100 mt-4 d-flex justify-content-center">
-          <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" (click)="location.reload()">Cancelar</button>
-          <button type="submit" class="btn btn-primary w-50 mx-auto">Crear</button>
-        </div>
-      </form>
-
-    </div>
-  </div>
-  <div *ngIf="blockPage" class="loader-container">
-    <div class="position-fixed top-0 start-0 bottom-0 end-0 d-flex justify-content-center align-items-center bg-dark" style="opacity: 0.7;">
-      <div class="spinner-border text-light" role="status">
-        <span class="visually-hidden">Loading...</span>
+<div class="container">
+  <div id="stepper1" class="bs-stepper">
+    <div class="bs-stepper-header">
+      <div class="step" data-target="#test-l-1">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">Registro Roles</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-2">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Asignar Modulos</span>
+        </button>
       </div>
     </div>
-  </div>
-  <div *ngIf="isAlert" class="alert alert-primary" role="alert">
-    {{message}}
+    <div class="bs-stepper-content">
+      <form (ngSubmit)="onSubmit()">
+        <div id="test-l-1" class="content">
+          <div class="form-group">
+            <div class=" w-100 h-100">
+              <div class="row  d-flex align-items-center h-100 px-5 mt-4 ">
+                <div class="col my-4 px-5" >
+                  <form class="py-2" [formGroup]="RolesFormGroup">
+                    <div class="d-flex justifyml-4-content-center">
+                      <p class="h1">Registrar Roles</p>
+                    </div>
+
+                    <div class="container">
+                      <div class="row w-100 d-flex">
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="date_attendance">Name</label>
+                          <input id="date_attendance" formControlName="name" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="category">Description</label>
+                          <input id="category" formControlName="description" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-100 mt-4 d-flex justify-content-center">
+                      <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" routerLink="../">Cancelar</button>
+                      <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveRole()">Siguiente</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+              <div *ngIf="blockPage" class="loader-container">
+                <div class="position-fixed top-0 start-0 bottom-0 end-0 d-flex justify-content-center align-items-center bg-dark" style="opacity: 0.7;">
+                  <div class="spinner-border text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="isAlert" class="alert alert-primary" role="alert">
+                {{message}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="test-l-2" class="content text-center">
+
+
+          <div>
+            <p-pickList
+              [dragdrop]='true'
+              [responsive]='true'
+              filterBy='value'
+              [source]='rolesAvailables'
+              [target]='rolesSelected'
+              sourceHeader=''
+              targetHeader=''
+              [showSourceControls]="false"
+              [showTargetControls]="false"
+              [sourceStyle]="{
+        width: '300px',
+        height: '300px',
+        border: 'none',
+        background: '#ffffff',
+        color: '#E3E4E7'
+        }"
+              [targetStyle]="{
+        width: '300px',
+         height: '300px',
+        border: 'none',
+        background: '#ffffff',
+        color: '#E3E4E7'
+        }"
+              (onMoveToTarget)='onMoveToSelected($event.items)'
+              (onMoveToSource)='onMoveToAvailable($event.items)'
+              (onMoveAllToTarget)="onMoveToSelected($event.items)"
+              (onMoveAllToSource)="onMoveToAvailable($event.items)"
+            >
+              <ng-template let-role pTemplate='item'>
+                <div class='ui-helper-clearfix'>
+                  <div style='margin: 2px 2px 0 0;'>{{ role?.name }}</div>
+                </div>
+              </ng-template>
+            </p-pickList>
+
+          </div>
+
+          <div class="w-100 mt-4 d-flex justify-content-center">
+            <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" routerLink="../">Anterior</button>
+            <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveRole()">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
+
+
+
+
 

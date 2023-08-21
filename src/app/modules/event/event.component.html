@@ -1,0 +1,49 @@
+
+
+<app-layout>
+  <div class='container'>
+    <div class='card'>
+      <div class='card-header'>
+        <h1>Lista de Eventos</h1>
+      </div>
+      <div class='card-body'>
+
+        <div>
+          <div class=""><button routerLink="create" type="button" class="btn btn-primary">Crear Evento</button></div>
+          <div class="p-5">
+
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Usuario Creador</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Opciones</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let event of listEvent">
+                <th scope="row">1</th>
+                  <td>{{event.name}}</td>
+                  <td>{{event.description}}</td>
+                <td>{{event.event_date}}</td>
+                  <td>{{event.user_id}}</td>
+                  <td>{{event.is_disable}}</td>
+                  <td class="d-flex">
+                    <i class="bi bi-trash-fill col-md-6 cursor-pointer"  ></i>
+                    <i class="bi bi-pencil-fill col-md-6 cursor-pointer"></i>
+                  </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-layout>

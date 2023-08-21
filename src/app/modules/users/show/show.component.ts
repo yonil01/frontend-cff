@@ -38,7 +38,6 @@ export class ShowComponent implements OnInit{
       if (resp.error) {
         alert('Error');
       }
-
       this.users = resp.data;
       this.getUsers();
 

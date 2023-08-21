@@ -13,6 +13,9 @@ import {environment} from "@env/environment";
 import {UtilsModule} from "@app/core/utils/utils.module";
 import {AttendanceModule} from "@app/modules/attendance/attendance.module";
 import { AdminComponent } from './modules/admin/admin.component';
+import { EventComponent } from './modules/event/event.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgbDropdownModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +28,9 @@ import { AdminComponent } from './modules/admin/admin.component';
     HttpClientModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
-    UtilsModule,
-    AttendanceModule,
+    BrowserAnimationsModule,
+    NgbDropdownModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

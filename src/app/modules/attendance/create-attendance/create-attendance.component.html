@@ -9,27 +9,40 @@
         <div class="container">
           <div class="row w-100 d-flex">
             <div class="form-group mt-4 col-md-6">
-              <label for="date_attendance">Fecha</label>
-              <input id="date_attendance" formControlName="date_attendance" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+              <label>Eventos</label>
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle form-control form-control-lg d-flex justify-content-between align-items-center" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span>{{ eventSelect?.description || 'Selecciona un evento' }}</span>
+                  <span><i class="fas fa-chevron-down"></i></span>
+                </a>
+                <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
+                  <li *ngFor="let event of listEvent" [ngClass]="{'active': event.id === eventSelect?.id}">
+                    <a class="dropdown-item" (click)="selectEvent(event.id)">{{ event.description }}</a>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="form-group mt-4 col-md-6">
-              <label for="category">Categoria</label>
-              <input id="category" formControlName="category" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+              <label >Fecha</label>
+              <input
+                formControlName="date_attendance"
+                type="text"
+                class="form-control"
+                #dp="bsDatepicker"
+                bsDatepicker
+              />
             </div>
           </div>
           <div class="row w-100 d-flex">
             <div class="form-group mt-4 col-md-6">
-              <label for="promotion">Promoción</label>
-              <input  id="promotion" formControlName="promotion" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+              <label for="promotion">Codigo Estudiante</label>
+              <input  id="promotion" formControlName="code_student" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
             </div>
-
           </div>
-
-
         </div>
         <div class="w-100 mt-4 d-flex justify-content-center">
-          <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" (click)="location.reload()">Cancelar</button>
-          <button type="submit" class="btn btn-primary w-50 mx-auto">Crear</button>
+          <button type="submit" class="btn btn-secondary w-50 mx-auto me-2"  [routerLink]="['../']">Cancelar</button>
+          <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveAttendance()">Crear</button>
         </div>
       </form>
 

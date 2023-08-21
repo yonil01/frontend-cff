@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit  {
 
   private getModules(): void {
     this.modules = this._localStorageService.getModules();
-    debugger
     console.log(this.modules);
     this.modules.map((element) => {
       if (element.id === 'c1fa60ba-a9af-45f9-9a25-7b8b224d35bc') {

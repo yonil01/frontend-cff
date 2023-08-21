@@ -8,3 +8,4 @@ export * from './config/dataset';
 export * from './doc/comment';
 export * from './doc/document';
 export * from './token/token';
+export * from './config/event'

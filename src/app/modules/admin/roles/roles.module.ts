@@ -17,7 +17,8 @@ import {CreateRolesComponent} from "@app/modules/admin/roles/create-roles/create
     UtilsModule,
     NgForOf,
     RolesRoutingModule,
-    AttendanceModule
+    AttendanceModule,
+    FormsModule
   ],
   providers: [],
   exports: [

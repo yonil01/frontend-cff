@@ -59,7 +59,6 @@ export class LayoutComponent implements OnInit {
 
   private getUserName(): void {
     this.userName = this._localStorageService.getNames();
-    debugger
   }
   private getModules(): void {
     this.modules = this._localStorageService.getModules();

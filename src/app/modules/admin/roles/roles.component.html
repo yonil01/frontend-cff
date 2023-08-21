@@ -7,13 +7,39 @@
         <h1>Lista de Roles</h1>
       </div>
       <div class='card-body'>
-        <div *ngIf="isCreate">
-          <app-create-roles></app-create-roles>
-        </div>
 
-        <div *ngIf="!isCreate">
-          <div class=""><button (click)="isCreate=!isCreate" type="button" class="btn btn-primary">Crear Roles</button></div>
-          <app-list-roles></app-list-roles>
+        <div >
+          <div class=""><button routerLink="create" type="button" class="btn btn-primary">Crear Roles</button></div>
+          <div>
+            <div class="p-5">
+              <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Fecha Creacion</th>
+                  <th scope="col">Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let role of listRoles">
+                  <th scope="row">1</th>
+                  <td>{{role.name}}</td>
+                  <td>{{role.description}}</td>
+                  <td>{{role.created_at}}</td>
+                  <td class="d-flex">
+                    <i class="bi bi-trash-fill col-md-6 cursor-pointer"  ></i>
+                    <i class="bi bi-pencil-fill col-md-6 cursor-pointer"></i>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

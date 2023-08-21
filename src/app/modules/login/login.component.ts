@@ -102,7 +102,6 @@ export class LoginComponent {
       this.subscription.add(
         this.modulesService.getModulesByRole(roles, 2,).subscribe(
           (resp: any) => {
-            debugger
             if (resp.error) {
               res(resp.error);
             } else {

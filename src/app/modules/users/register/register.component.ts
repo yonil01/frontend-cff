@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {ServiceReniecService} from "../services/service-reniec/service-reniec.service";
 import { v4 as uuidv4 } from 'uuid';
 import { Router } from '@angular/router';
+import {AuthenticationService} from "@app/core/service/authentication/authentication.service";
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent {
  public passwordFieldType: string = 'password';
   constructor(private _formBuilder: FormBuilder,
              private _reniecService: ServiceReniecService,
-              private router: Router) {
+              private _authenticationService: AuthenticationService) {
 
     this.ReniecFormGroup = this._formBuilder.group({
       dni: [{value: '', disabled: false} ],
@@ -74,11 +75,11 @@ export class RegisterComponent {
       lastname_mother: this.ReniecFormGroup.get('lastname_mother')?.value,
       email: this.ReniecFormGroup.get('email')?.value,
       password: this.ReniecFormGroup.get('password')?.value,
+      password_confirm: this.ReniecFormGroup.get('password')?.value,
 
     }
 
-    this._reniecService.saveUser(user).subscribe(async (resp: any) => {
-
+    this._authenticationService.saveUser(user).subscribe(async (resp: any) => {
       if (resp.error) {
         this.isAlert = true;
         this.message = 'Error en el servidor';

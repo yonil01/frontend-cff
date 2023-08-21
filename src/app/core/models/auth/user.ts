@@ -85,3 +85,10 @@ export interface UsersSecurityEntity {
   role_allow?: [];
   attributes: AttributesUser[];
  }
+
+
+export interface UserRole {
+  id?: string;
+  user_id?: string;
+  role_id?: string;
+}
