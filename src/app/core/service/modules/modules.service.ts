@@ -25,8 +25,42 @@ export class ModulesService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-
     return this._httpClient.post<Response>(url, data, { headers }).pipe(map((res) => res));
+  }
 
+  getModules(): Observable<Response> {
+    const token = this._localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/modules';
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this._httpClient.get<Response>(url, { headers }).pipe(map((res) => res));
+  }
+
+  getModulesRole(roleId: string): Observable<Response> {
+    const token = this._localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/modules/role/' + roleId;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this._httpClient.get<Response>(url, { headers }).pipe(map((res) => res));
+  }
+
+  deleteModulesRole(moduleRoleId: string): Observable<Response> {
+    const token = this._localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/modules/role/delete/' + moduleRoleId;
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this._httpClient.get<Response>(url, { headers }).pipe(map((res) => res));
+  }
+
+  public CreateModuleRole(data: any) {
+    const token = this._localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/modules/role/create';
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this._httpClient.post<Response>(url, data,{ headers }).pipe(map((res) => res));
   }
 }

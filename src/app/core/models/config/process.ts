@@ -107,9 +107,9 @@ export interface QueueRolesModel {
 }
 
 export interface RoleModel {
-  id: string;
-  name: string;
-  description: string
+  id?: string;
+  name?: string;
+  description?: string
 }
 
 export interface Rule {

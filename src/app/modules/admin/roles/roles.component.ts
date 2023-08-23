@@ -3,6 +3,7 @@ import {AdminComponent} from "@app/modules/admin/admin.component";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Subscription} from "rxjs";
 import {AuthenticationService} from "@app/core/service/authentication/authentication.service";
+import {ModuleRole, RoleModel} from "@app/core/models";
 
 @Component({
   selector: 'app-roles',
@@ -32,6 +33,22 @@ export class RolesComponent implements OnInit {
 
           } else {
             this.listRoles = resp.data;
+          }
+        },
+        (err: HttpErrorResponse) => {
+          console.log(err);
+        }),
+    );
+  }
+
+  public deleteRole(role: RoleModel): void {
+    this.subscription.add(
+      this._authenticationService.DeleteRole(role.id).subscribe(
+        (resp: any) => {
+          if (resp.error) {
+
+          } else {
+            this.listRoles = this.listRoles.filter((roleM:RoleModel) => roleM.id !== role.id);
           }
         },
         (err: HttpErrorResponse) => {

@@ -42,7 +42,7 @@
                       </div>
                     </div>
                     <div class="w-100 mt-4 d-flex justify-content-center">
-                      <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" routerLink="../">Cancelar</button>
+                      <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" routerLink="/admin/roles">Cancelar</button>
                       <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveRole()">Siguiente</button>
                     </div>
                   </form>
@@ -71,8 +71,8 @@
               [dragdrop]='true'
               [responsive]='true'
               filterBy='value'
-              [source]='rolesAvailables'
-              [target]='rolesSelected'
+              [source]='modulesAvailables'
+              [target]='modulesSelected'
               sourceHeader=''
               targetHeader=''
               [showSourceControls]="false"
@@ -106,8 +106,8 @@
           </div>
 
           <div class="w-100 mt-4 d-flex justify-content-center">
-            <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" routerLink="../">Anterior</button>
-            <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveRole()">Guardar</button>
+            <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" (click)="backStep()">Anterior</button>
+            <button type="submit" class="btn btn-primary w-50 mx-auto" routerLink="/admin/roles">Guardar</button>
           </div>
         </div>
       </form>

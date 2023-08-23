@@ -42,3 +42,10 @@ export interface Components {
   name: string;
   active: boolean;
 }
+
+
+export interface ModuleRole {
+  id?: string,
+  role_id?: string,
+  element_id?: string,
+}

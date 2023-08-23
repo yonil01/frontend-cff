@@ -57,9 +57,35 @@ export class AuthenticationService {
     );
   }
 
+  public updateUser(data: any) {
+    data.password = encryptText(data.password);
+    data.password_confirm = encryptText(data.password_confirm);
+    const url: string = URL_AUTH + '/api/v1/user/update';
+    const httpOptions = {
+      'headers': new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this._httpClient.post(url, data, httpOptions).pipe(
+      map(res => res)
+    );
+  }
+
   public saveRole(data: any) {
     const token = this.localStorageService.getToken();
     const url: string = URL_API_GLOBAL + '/api/v1/roles/create';
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this._httpClient.post<Response>(url, data, { headers }).pipe(map((res) => res));
+
+  }
+
+  public updateRole(data: any) {
+    const token = this.localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/roles/update';
 
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -93,16 +119,26 @@ export class AuthenticationService {
 
   }
 
-  public DeleteRoleModule(data: any) {
+  public DeleteRole(id: string | undefined) {
     const token = this.localStorageService.getToken();
-    const url: string = URL_API_GLOBAL + '/api/v1/roles/create';
+    const url: string = URL_API_GLOBAL + '/api/v1/roles/delete/' + id;
 
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
 
-    return this._httpClient.post<Response>(url, data, { headers }).pipe(map((res) => res));
+    return this._httpClient.get<Response>(url, { headers }).pipe(map((res) => res));
+  }
 
+  public GetRoleById(id: string | undefined) {
+    const token = this.localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/roles/' + id;
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this._httpClient.get<Response>(url, { headers }).pipe(map((res) => res));
   }
 
 }

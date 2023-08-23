@@ -29,8 +29,8 @@
                   <td>{{role.description}}</td>
                   <td>{{role.created_at}}</td>
                   <td class="d-flex">
-                    <i class="bi bi-trash-fill col-md-6 cursor-pointer"  ></i>
-                    <i class="bi bi-pencil-fill col-md-6 cursor-pointer"></i>
+                    <i class="bi bi-trash-fill col-md-6 cursor-pointer"  (click)="deleteRole(role)"></i>
+                    <i class="bi bi-pencil-fill col-md-6 cursor-pointer" routerLink="edit/{{role.id}}"></i>
                   </td>
                 </tr>
                 </tbody>

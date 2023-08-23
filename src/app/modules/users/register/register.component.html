@@ -1,65 +1,173 @@
-<div class=" w-100 h-100">
-  <div class="row  d-flex align-items-center h-100 px-5 mt-4 ">
-    <div class="col my-4 px-5" >
-      <form class="py-2" [formGroup]="ReniecFormGroup">
-        <div class="d-flex justifyml-4-content-center">
-          <p class="h1">Registrar Usuario</p>
-        </div>
 
-        <div class="container">
-          <div class="row w-100 d-flex">
-            <div class="form-group mt-4 col-md-6">
-              <label for="exampleInputEmail1">Dni</label>
-              <input formControlName="dni" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="" (keydown.Tab)="getReniecByDni()">
-            </div>
-            <div class="form-group mt-4 col-md-6">
-              <label for="exampleInputEmail1">Nombres</label>
-              <input formControlName="names" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
-            </div>
-          </div>
-          <div class="row w-100 d-flex">
-            <div class="form-group mt-4 col-md-6">
-              <label for="exampleInputEmail1">Apellido Paterno</label>
-              <input formControlName="lastname_father" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
-            </div>
-            <div class="form-group mt-4 col-md-6">
-              <label for="exampleInputEmail1">Apellido Materno</label>
-              <input formControlName="lastname_mother" type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-            </div>
-          </div>
-          <div class="row w-100 d-flex">
-            <div class="form-group mt-4 col-md-6">
-              <label for="exampleInputEmail1">Codigo Estudiante</label>
-              <input formControlName="code_student" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
-            </div>
-          </div>
-          <div class="row w-100 d-flex">
-            <div class="form-group mt-4 col-md-6">
-              <label for="exampleInputEmail1">Correo Electronico</label>
-              <input formControlName="email" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
-            </div>
-            <div class="form-group mt-4 col-md-6">
-              <label for="exampleInputEmail1">Contraseña</label>
-              <div class="input-group">
-                <input formControlName="password" [type]="passwordFieldType" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
-                  <i [hidden]="passwordFieldType === 'text'" class="bi bi-eye"></i>
-                  <i [hidden]="passwordFieldType === 'password'" class="bi bi-eye-slash"></i>
-                </button>
+<div class="container">
+  <div id="stepper1" class="bs-stepper">
+    <div class="bs-stepper-header">
+      <div class="step" data-target="#test-l-1">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">Registro Roles</span>
+        </button>
+      </div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="step" data-target="#test-l-2">
+        <button class="step-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Asignar Modulos</span>
+        </button>
+      </div>
+    </div>
+    <div class="bs-stepper-content">
+      <form (ngSubmit)="onSubmit()">
+        <div id="test-l-1" class="content">
+          <div class="form-group">
+            <div class=" w-100 h-100">
+              <div class="row  d-flex align-items-center h-100 px-5 mt-4 ">
+                <div class="col my-4 px-5" >
+                  <form class="py-2" [formGroup]="ReniecFormGroup">
+                    <div class="d-flex justifyml-4-content-center">
+                      <p class="h1">Registrar Usuario</p>
+                    </div>
+
+                    <div class="container">
+                      <div class="row w-100 d-flex">
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="exampleInputEmail1">Dni</label>
+                          <input formControlName="dni" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="" (keydown.Tab)="getReniecByDni()">
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="exampleInputEmail1">Nombres</label>
+                          <input formControlName="names" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                      </div>
+                      <div class="row w-100 d-flex">
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="exampleInputEmail1">Apellido Paterno</label>
+                          <input formControlName="lastname_father" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="exampleInputEmail1">Apellido Materno</label>
+                          <input formControlName="lastname_mother" type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                      </div>
+                      <div class="row w-100 d-flex">
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="exampleInputEmail1">Codigo Estudiante</label>
+                          <input formControlName="code_student" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                          <label for="exampleInputEmail1">Correo Electronico</label>
+                          <input formControlName="email" type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="">
+                        </div>
+                      </div>
+                      <div class="row w-100 d-flex">
+
+                        <!--<div class="form-group mt-4 col-md-6">
+                          <label for="exampleInputEmail1">Contraseña</label>
+                          <div class="input-group">
+                            <input formControlName="password" [type]="passwordFieldType" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                            <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+                              <i [hidden]="passwordFieldType === 'text'" class="bi bi-eye"></i>
+                              <i [hidden]="passwordFieldType === 'password'" class="bi bi-eye-slash"></i>
+                            </button>
+                          </div>
+                        </div>-->
+
+
+                      </div>
+
+                    </div>
+                    <div class="w-100 mt-4 d-flex justify-content-center">
+                      <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" routerLink="/admin/users">Cancelar</button>
+                      <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveUser()">Siguiente</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+              <div *ngIf="blockPage" class="loader-container">
+                <div class="position-fixed top-0 start-0 bottom-0 end-0 d-flex justify-content-center align-items-center bg-dark" style="opacity: 0.7;">
+                  <div class="spinner-border text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="isAlert" class="alert alert-primary" role="alert">
+                {{message}}
               </div>
             </div>
+          </div>
+        </div>
 
+        <div id="test-l-2" class="content text-center">
+
+
+          <div>
+            <p-pickList
+              [dragdrop]='true'
+              [responsive]='true'
+              filterBy='value'
+              [source]='modulesAvailables'
+              [target]='modulesSelected'
+              sourceHeader=''
+              targetHeader=''
+              [showSourceControls]="false"
+              [showTargetControls]="false"
+              [sourceStyle]="{
+        width: '300px',
+        height: '300px',
+        border: 'none',
+        background: '#ffffff',
+        color: '#E3E4E7'
+        }"
+              [targetStyle]="{
+        width: '300px',
+         height: '300px',
+        border: 'none',
+        background: '#ffffff',
+        color: '#E3E4E7'
+        }"
+              (onMoveToTarget)='onMoveToSelected($event.items)'
+              (onMoveToSource)='onMoveToAvailable($event.items)'
+              (onMoveAllToTarget)="onMoveToSelected($event.items)"
+              (onMoveAllToSource)="onMoveToAvailable($event.items)"
+            >
+              <ng-template let-role pTemplate='item'>
+                <div class='ui-helper-clearfix'>
+                  <div style='margin: 2px 2px 0 0;'>{{ role?.name }}</div>
+                </div>
+              </ng-template>
+            </p-pickList>
 
           </div>
 
-        </div>
-        <div class="w-100 mt-4 d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary w-50 mx-auto" (click)="saveUser()" >Crear</button>
+          <div class="w-100 mt-4 d-flex justify-content-center">
+            <button type="submit" class="btn btn-secondary w-50 mx-auto me-2" (click)="backStep()">Anterior</button>
+            <button type="submit" class="btn btn-primary w-50 mx-auto" routerLink="/admin/users">Guardar</button>
+          </div>
         </div>
       </form>
-
     </div>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=" w-100 h-100">
   <div *ngIf="blockPage" class="loader-container">
     <div class="position-fixed top-0 start-0 bottom-0 end-0 d-flex justify-content-center align-items-center bg-dark" style="opacity: 0.7;">
       <div class="spinner-border text-light" role="status">

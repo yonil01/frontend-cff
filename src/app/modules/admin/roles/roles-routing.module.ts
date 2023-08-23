@@ -7,6 +7,7 @@ import {CreateRolesComponent} from "@app/modules/admin/roles/create-roles/create
 const routes: Routes = [
   { path: '', component: RolesComponent },
   { path: 'create', component: CreateRolesComponent },
+  { path: 'edit/:id', component: CreateRolesComponent },
 ];
 
 @NgModule({
