@@ -63,7 +63,6 @@ export class CreateRolesComponent implements OnInit {
   }
 
   onMoveToSelected(modules: Module[]): void {
-    debugger
     //this.isBlockPage = true;
     this.callServicesCount = 0;
     for (const module of modules) {
@@ -88,7 +87,6 @@ export class CreateRolesComponent implements OnInit {
 
 
   onMoveToAvailable(modules: Module[]): void {
-    debugger
     //this.isBlockPage = true;
     this.callServicesCount = 0;
     for (const module of modules) {
@@ -119,7 +117,6 @@ export class CreateRolesComponent implements OnInit {
       this.subscription.add(
         this._authenticationService.updateRole(role).subscribe(
           (resp: any) => {
-            debugger
             if (resp.error) {
             } else {
               this.role = resp.data;
@@ -142,7 +139,6 @@ export class CreateRolesComponent implements OnInit {
         this.subscription.add(
           this._authenticationService.saveRole(role).subscribe(
             (resp: any) => {
-              debugger
               if (resp.error) {
               } else {
                 this.role = resp.data;
@@ -163,7 +159,6 @@ export class CreateRolesComponent implements OnInit {
     this.subscription.add(
       this._modulesService.getModules().subscribe(
         (resp: any) => {
-          debugger
           if (resp.error) {
 
           } else {
@@ -176,7 +171,6 @@ export class CreateRolesComponent implements OnInit {
               this.modulesAvailables = resp.data.filter((mod: any) => {
                 return !this.modulesSelected.some((mod2: any) => mod2.id === mod.id);
               });
-              debugger
             }
           }
         },
@@ -191,7 +185,6 @@ export class CreateRolesComponent implements OnInit {
         this.subscription.add(
           this._modulesService.getModulesRole(this.role.id).subscribe(
             (resp: any) => {
-              debugger
               if (resp.error) {
                 res(resp.error);
               } else {

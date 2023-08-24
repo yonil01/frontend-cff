@@ -25,7 +25,6 @@ export class ModulesComponent  implements OnInit {
     this.subscription.add(
       this._modulesService.getModules().subscribe(
         (resp: any) => {
-          debugger
           if (resp.error) {
 
           } else {

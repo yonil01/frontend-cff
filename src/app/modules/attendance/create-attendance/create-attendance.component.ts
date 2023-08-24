@@ -63,7 +63,6 @@ export class CreateAttendanceComponent implements OnInit {
       this.subscription.add(
         this._attendanceService.saveAttendance(this.AttendanceFormGroup.value).subscribe(
           (resp: any) => {
-            debugger
             if (resp.error) {
 
             } else {

@@ -59,9 +59,11 @@ export class LoginComponent {
           },
           (err: HttpErrorResponse) => {
             console.log(err);
+            this.blockPage = false;
           }),
       );
     } else {
+      this.blockPage = false;
     }
   }
 

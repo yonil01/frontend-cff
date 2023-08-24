@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit{
       dni: this.ReniecFormGroup.get('dni')?.value,
     }
     this._reniecService.getReniecByDni(jsonData).subscribe(async (resp: any) => {
-      debugger
+
     if (resp.error) {
       this.isAlert = true;
       this.message = 'Error en el servidor';
@@ -112,7 +112,6 @@ export class RegisterComponent implements OnInit{
           password_confirm: this.ReniecFormGroup.get('dni')?.value,
 
         }
-
         this._authenticationService.updateUser(user).subscribe(async (resp: any) => {
           if (resp.error) {
             this.isAlert = true;
@@ -126,10 +125,10 @@ export class RegisterComponent implements OnInit{
 
           this.message = 'El usuario se creo correcto!';
           this.blockPage = false;
+          this.user = resp.data;
+          this.getRolesUser();
           this.stepper.next();
         })
-      }
-
       } else {
         const user: any = {
           id: uuidv4(),
@@ -146,6 +145,7 @@ export class RegisterComponent implements OnInit{
         }
 
         this._authenticationService.saveUser(user).subscribe(async (resp: any) => {
+
           if (resp.error) {
             this.isAlert = true;
             this.message = 'Error en el servidor';
@@ -155,11 +155,14 @@ export class RegisterComponent implements OnInit{
             this.isAlert = true;
             this.message = 'El usuario no se creo!';
           }
-
           this.message = 'El usuario se creo correcto!';
           this.blockPage = false;
+          this.user = resp.data;
+          this.getRolesUser();
           this.stepper.next();
         })
+      }
+
       }
 
   }
@@ -194,7 +197,6 @@ export class RegisterComponent implements OnInit{
   }
 
   onMoveToSelected(roles: RoleModel[]): void {
-    debugger
     //this.isBlockPage = true;
     this.callServicesCount = 0;
     for (const role of roles) {
@@ -219,7 +221,6 @@ export class RegisterComponent implements OnInit{
 
 
   onMoveToAvailable(roles: RoleModel[]): void {
-    debugger
     //this.isBlockPage = true;
     this.callServicesCount = 0;
     for (const role of roles) {
@@ -246,7 +247,6 @@ export class RegisterComponent implements OnInit{
       this.subscription.add(
         this._reniecService.getRolesUserByUser(this.user.id).subscribe(
           (resp: any) => {
-            debugger
             if (resp.error) {
               res(resp.error);
             } else {
@@ -277,6 +277,8 @@ export class RegisterComponent implements OnInit{
                 this.modulesSelected = resp.data.filter((mod: any) => {
                   return this.roleUsers.find((modUs: UserRole) => modUs.role_id === mod.id);
                 });
+              } else {
+                this.modulesSelected = [];
               }
               this.modulesAvailables = resp.data.filter((mod: any) => {
                 return !this.modulesSelected.some((mod2: any) => mod2.id === mod.id);

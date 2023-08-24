@@ -71,7 +71,7 @@ export class ServiceReniecService {
 
   createRoleUser(data: UserRole): Observable<Response> {
     const token = this.localStorageService.getToken();
-    const url: string = URL_API_GLOBAL + '/api/v1/modules';
+    const url: string = URL_API_GLOBAL + '/api/v1/role_user/create';
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });

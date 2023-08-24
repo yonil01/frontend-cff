@@ -8,6 +8,7 @@ import {RegisterComponent} from "@app/modules/users/register/register.component"
 const routes: Routes = [
   { path: '', component: UsersComponent },
   { path: 'create', component: RegisterComponent },
+  { path: 'edit/:id', component: RegisterComponent },
 ];
 
 @NgModule({
