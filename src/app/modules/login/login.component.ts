@@ -46,6 +46,8 @@ export class LoginComponent {
         this._authenticationService.login(this.formLogin.value).subscribe(
           (resp: any) => {
             if (resp.error) {
+              alert('Error logearse!');
+              this.blockPage = false;
             } else {
               if (resp.data.access_token !== "") {
                 this._authenticationService.setTokenSessionStorage(resp.data);

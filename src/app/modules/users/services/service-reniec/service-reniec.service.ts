@@ -78,6 +78,15 @@ export class ServiceReniecService {
     return this._httpClient.post<Response>(url, data, { headers }).pipe(map((res) => res));
   }
 
+  getRoleByName(data: any): Observable<Response> {
+    const token = this.localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/roles/name';
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this._httpClient.post<Response>(url, data, { headers }).pipe(map((res) => res));
+  }
+
 
   public getRolesUserByUser(idUser: string): Observable<Response> {
     const token = this.localStorageService.getToken();

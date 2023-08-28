@@ -7,11 +7,16 @@ const routes: Routes = [
     loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule),
   },
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'admin/student',
     loadChildren: () => import('@app/modules/users/users.module').then((m) => m.UsersModule),
   },
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('@app/modules/home/home.module').then((m) => m.HomeModule),
   },
   {

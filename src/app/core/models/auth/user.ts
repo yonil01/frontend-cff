@@ -7,7 +7,6 @@ export interface User {
   last_name?: string;
   password?: string;
   password_confirm?: string;
-  roles?: Role[];
   logged_users?: LoggedUsers[];
   email_notifications?: string;
   status?: string;
@@ -24,6 +23,7 @@ export interface User {
   last_login?: Date;
   modules?: Module[];
   token?: string;
+  roles?: string[],
   created_at?: string;
   updated_at?: string;
   identification_number?: string;
