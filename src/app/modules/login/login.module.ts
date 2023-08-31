@@ -6,13 +6,15 @@ import { LoginRoutingModule } from './login-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {LoginComponent} from "./login.component";
 import {Store} from "@ngrx/store";
+import {TranslateModule} from "@ngx-translate/core";
 @NgModule({
   declarations: [LoginComponent],
-  imports: [
-    LoginRoutingModule,
-    ReactiveFormsModule,
-    NgIf,
-  ],
+    imports: [
+        LoginRoutingModule,
+        ReactiveFormsModule,
+        NgIf,
+        TranslateModule,
+    ],
   providers: [
   ],
 })

@@ -3,19 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './modules/users/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {StoreModule} from "@ngrx/store";
 import {appReducers} from "@app/core/store/app.reducers";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "@env/environment";
-import {UtilsModule} from "@app/core/utils/utils.module";
-import {AttendanceModule} from "@app/modules/attendance/attendance.module";
-import { AdminComponent } from './modules/admin/admin.component';
-import { EventComponent } from './modules/event/event.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgbDropdownModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+
+export function createTranslateLoader(http: HttpClient): any {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,14 @@ import {NgbDropdownModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
     BrowserAnimationsModule,
     NgbDropdownModule,
-    NgbModule
+    NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

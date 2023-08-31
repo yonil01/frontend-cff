@@ -12,6 +12,7 @@ import {ModulesService} from "../../core/service/modules/modules.service";
 import {controlModules} from "../../core/store/actions/modules.action";
 import {encryptText} from "../../core/utils/crypto/cypher";
 import {Module} from "@app/core/models";
+import {TranslateService} from "@ngx-translate/core";
 
 
 @Component({
@@ -31,6 +32,7 @@ export class LoginComponent {
     private _localStorageService: LocalStoreService,
     private modulesService: ModulesService,
     private _route: Router,
+    public translate: TranslateService
   ) {
     this.formLogin = this._formBuilder.group({
       id: ['', Validators.required],
@@ -39,6 +41,9 @@ export class LoginComponent {
     });
   }
 
+  changeLanguage(language: any) {
+    this.translate.use(language.value);
+  }
   public login(): void {
     this.blockPage = true;
     if (this.formLogin.valid) {
