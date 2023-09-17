@@ -23,4 +23,17 @@ export class AttendanceService {
 
   }
 
+
+  public GetAttendance(): Observable<Response> {
+    const token = this._localStorageService.getToken();
+    const url: string = URL_API_GLOBAL + '/api/v1/attendance';
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this._httpClient.get<Response>(url, { headers }).pipe(map((res) => res));
+
+  }
+
 }

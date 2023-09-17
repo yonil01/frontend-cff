@@ -48,6 +48,10 @@ const routes: Routes = [
     path: 'admin/events',
     loadChildren: () => import('@app/modules/event/event.module').then((m) => m.EventModule),
   },
+  {
+    path: 'list-attendance',
+    loadChildren: () => import('@app/modules/list-attendace/list-attendance.module').then((m) => m.ListAttendanceModule),
+  },
 ];
 
 @NgModule({

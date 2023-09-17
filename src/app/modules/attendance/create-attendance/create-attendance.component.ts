@@ -13,9 +13,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./create-attendance.component.scss']
 })
 export class CreateAttendanceComponent implements OnInit {
-
-
-
   private subscription: Subscription = new Subscription();
   AttendanceFormGroup: FormGroup;
   public blockPage: boolean = false;
