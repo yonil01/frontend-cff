@@ -67,8 +67,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let attendance of listAttendance">
-                  <th scope="row">1</th>
+                <tr *ngFor="let attendance of listAttendance;  index as i">
+                  <th scope="row">{{i+1}}</th>
                   <td>{{attendance.event_name}}</td>
                   <td>{{attendance.created_at}}</td>
                   <td>{{attendance.user_name}}</td>

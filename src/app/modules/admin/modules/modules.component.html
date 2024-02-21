@@ -23,8 +23,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let module of listModules">
-                  <th scope="row">1</th>
+                <tr *ngFor="let module of listModules; index as i ">
+                  <th scope="row">{{i+1}}</th>
                   <td>{{module.name}}</td>
                   <td>{{module.description}}</td>
                   <td>{{module.class}}</td>
